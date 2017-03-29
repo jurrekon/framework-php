@@ -9,7 +9,7 @@ function getAllStudents()
 {
 	$db = openDatabaseConnection();
 
-	$sql = "SELECT * FROM students";
+	$sql = "SELECT * FROM patient";
 	$query = $db->prepare($sql);
 	$query->execute();
 

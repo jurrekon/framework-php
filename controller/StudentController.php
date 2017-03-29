@@ -45,5 +45,5 @@ function delete($id)
 		deleteStudent($id);
 	}
 
-	header("Location:" . URL . "student/index");
+	header("Location:" . URL . "patient/index");
 }

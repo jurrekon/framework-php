@@ -1,0 +1,44 @@
+body {
+	margin : 0 auto;
+	width : 800px;
+	background-color: #DDDDDD;
+	font-family: calibri;
+}
+
+table {
+	width : 800px;
+}
+
+table, td, th {
+	border : 1px #ddd solid;
+	border-collapse : collapse;
+	background-color: #ccc;
+	color : black;
+}
+
+td, th {
+	padding : 2px;
+}
+
+th {
+	text-align : left;
+}
+
+td.center{
+	text-align : center;
+}
+
+a {
+	color : black;
+}
+p.options{
+	text-align : right;
+}
+
+label {
+	display : inline-block;
+	width : 100px;
+}
+form div {
+	margin: 5px 0;
+}
