@@ -7,14 +7,11 @@
 		<div>
 			<label for="species">Species:</label>
 			<select name="species">
-				<option value="Hond">Hond</option>
-				<option value="Kat">Kat</option>
-				<option value="Vis">Vis</option>
-				<option value="Koe">Koe</option>
-					<!-- foreach ($species as $race) {
-						echo "<option value=\"" . $race['species'] . "\">" . $race['species'] . "</option>";
-					} -->
-				
+				<?php
+					foreach ($species as $specie) {
+						echo "<option value=\"" . $specie['species'] . "\">" . $specie['species'] . "</option>";
+					}
+				?>
 			</select>
 		</div>
 		<div>
@@ -29,11 +26,11 @@
 		<div>
 			<label for="client">Client name:</label>
 			<select name="client">
-				<option value="Klaas">klaas</option>
-					<!-- foreach ($clients as $client) {
-						echo "<option value=\"" . $client['id'] . "\">" . $client['name'] . "</option>";
-					} -->
-				
+				<?php
+					foreach ($clients as $client) {
+						echo "<option value=\"" . $client['id'] . "\">" . $client['fullname'] . "</option>";
+					}
+				?>
 			</select>
 		</div>
 

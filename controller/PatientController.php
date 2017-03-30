@@ -1,6 +1,8 @@
 <?php
 
 require(ROOT . "model/PatientModel.php");
+require(ROOT . "model/ClientModel.php");
+require(ROOT . "model/SpeciesModel.php");
 
 function index()
 {
@@ -13,7 +15,13 @@ function index()
 function create()
 {
 	//formulier tonen
-	render("patient/create");
+	$clients = getAllClients();
+	$species = getAllSpecies();
+
+	render("patient/create", array(
+		'clients' => $clients,
+		'species' => $species,
+	));
 }
 
 function createSave()
@@ -27,19 +35,20 @@ function createSave()
 
 function edit($id)
 {
-	//$student = getStudent();
-
-	// getStudent(1);
-
+	$clients = getAllClients();
+	$species = getAllSpecies();
 	$patients = editPatient($id);
+
 	render("patient/edit", array(
-		'patients' => $patients
+		'patients' => $patients,
+		'clients' => $clients,
+		'species' => $species
 	));
 }
 
 function editSave()
 {
-	if (isset($_POST['id'] && $_POST['name']) && isset($_POST['species']) && isset($_POST['gender']) && isset($_POST['status']) && isset($_POST['client'])) {
+	if (isset($_POST['name']) && isset($_POST['species']) && isset($_POST['gender']) && isset($_POST['status']) && isset($_POST['client'])) {
 		editPatientSave($_POST['id'], $_POST['name'], $_POST['species'], $_POST['gender'], $_POST['status'], $_POST['client']);
 	}
 

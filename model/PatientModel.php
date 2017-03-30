@@ -1,10 +1,5 @@
 <?php
 
-function getStudent($id) 
-{
-
-}
-
 function getAllPatients() 
 {
 	$db = openDatabaseConnection();
@@ -42,7 +37,7 @@ function editPatientSave($id, $name, $species, $gender, $status, $client)
 	$db = openDatabaseConnection();
 
 	$sql = "UPDATE patient SET name=:name, species=:species, gender=:gender, status=:status, client_id=:client WHERE id=:id";
-		$query = $db->perpare($sql);
+		$query = $db->prepare($sql);
 		$query->execute(array(
 		':id' => $id,
 		':name' => $name,

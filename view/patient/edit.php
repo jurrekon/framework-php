@@ -1,3 +1,6 @@
+<?php
+	$select_gender = array('Male', 'Female');
+?>
 <h1>Edit patiënt</h1>
 	<form action="<?= URL ?>patient/editSave" method="post">
 		<div>
@@ -8,37 +11,37 @@
 		<div>
 			<label for="species">Species:</label>
 			<select name="species">
-				<option value="Hond">Hond</option>
-				<option value="Kat">Kat</option>
-					<!-- foreach ($species as $race) {
-						echo "<option value=\"" . $race['species'] . "\">" . $race['species'] . "</option>";
-					} -->
-				
+				<?php
+					foreach ($species as $specie) {
+						echo "<option value=\"" . $specie['species'] . "\">" . $specie['species'] . "</option>";
+					}
+				?>
 			</select>
 		</div>
 		<div>
 			<label for="gender">Gender:</label>
-			<input type="radio" id="male" name="gender" value="Male">Male
-			<input type="radio" id="female" name="gender" value="Female">Female
-				<!-- foreach ($select_gender as $selected_gender) {
-					if ($selected_gender == $patient['gender']) {
-						echo "<input type=\"radio\" id=\"$selected_gender\" name=\"gender\" value=\"0\" checked=\"checked\">$selected_gender";
+			<?php
+					if ("Male" == $patients[0]['gender']) {
+						echo "<input type=\"radio\" id=\"male\" name=\"gender\" value=\"Male\" checked=\"checked\">Male";
+						echo "<input type=\"radio\" id=\"female\" name=\"gender\" value=\"Female\">Female";
 					} else {
-						echo "<input type=\"radio\" id=\"$selected_gender\" name=\"gender\" value=\"1\">$selected_gender";
+						echo "<input type=\"radio\" id=\"male\" name=\"gender\" value=\"Male\">Male";
+						echo "<input type=\"radio\" id=\"female\" name=\"gender\" value=\"Female\" checked=\"checked\">Female";
 					}
-				} -->
+			?>
 		</div>
 		<div>
 			<label for="name">Status:</label>
-			<textarea id="status" name="status"></textarea>
+			<textarea id="status" name="status"><?=$patients[0]['status']?></textarea>
 		</div>
 		<div>
 			<label for="client">Client name:</label>
 			<select name="client">
-				<option value="Klaas">klaas</option>
-					<!-- foreach ($clients as $client) {
-						echo "<option value=\"" . $client['id'] . "\">" . $client['name'] . "</option>";
-					} -->
+				<?php
+					foreach ($clients as $client) {
+						echo "<option value=\"" . $client['id'] . "\">" . $client['fullname'] . "</option>";
+					}
+				?>
 			</select>
 		</div>
 		<div>
