@@ -1,9 +1,11 @@
 <?php
 
+// include species model
 require(ROOT . "model/SpeciesModel.php");
 
 function index()
 {
+	// get data from database and render view
 	$species = getAllSpecies();
 	render("species/index", array(
 		'species' => $species
@@ -12,12 +14,13 @@ function index()
 
 function create()
 {
-	//formulier tonen
+	//render create form
 	render("species/create");
 }
 
 function createSave()
 {
+	// if fields are filled, call function
 	if (isset($_POST['species'])) {
 		createSpecies($_POST['species']);
 	}
@@ -27,6 +30,7 @@ function createSave()
 
 function edit($id)
 {
+	// get data from database and render view
 	$species = editSpecies($id);
 	render("species/edit", array(
 		'species' => $species
@@ -35,6 +39,7 @@ function edit($id)
 
 function editSave()
 {
+	// if fields are filled, call function
 	if (isset($_POST['species'])) {
 		editSpeciesSave($_POST['id'], $_POST['species']);
 	}
@@ -44,6 +49,7 @@ function editSave()
 
 function delete($id)
 {
+	// check for id, then delete that id
 	if (isset($id)) {
 		deleteSpecies($id);
 	}
