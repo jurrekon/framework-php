@@ -34,16 +34,17 @@ function editClient($id)
 	return $clients;
 }
 
-function editClientSave($id, $fullname, $street, $city, $zipcode)
+function editClientSave($id, $fullname, $lastname, $street, $city, $zipcode)
 {
 	// create database connection
 	$db = openDatabaseConnection();
 	// prepare query and execute
-	$sql = "UPDATE client SET fullname=:fullname, street=:street, city=:city, zipcode=:zipcode WHERE id=:id";
+	$sql = "UPDATE client SET fullname=:fullname, lastname=:lastname, street=:street, city=:city, zipcode=:zipcode WHERE id=:id";
 		$query = $db->prepare($sql);
 		$query->execute(array(
 		':id' => $id,
 		':fullname' => $fullname,
+		':lastname' => $lastname,
 		':street' => $street,
 		':city' => $city,
 		':zipcode' => $zipcode
@@ -66,15 +67,16 @@ function deleteClient($id)
 	$db = null;
 }
 
-function createClient($fullname, $street, $city, $zipcode) 
+function createClient($fullname, $lastname, $street, $city, $zipcode) 
 {
 	// create database connection
 	$db = openDatabaseConnection();
 	// prepare query and execute
-	$sql = "INSERT INTO client (fullname, street, city, zipcode) VALUES (:fullname, :street, :city, :zipcode)";
+	$sql = "INSERT INTO client (fullname, lastname, street, city, zipcode) VALUES (:fullname, :lastname, :street, :city, :zipcode)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':fullname' => $fullname,
+		':lastname' => $lastname,
 		':street' => $street,
 		':city' => $city,
 		':zipcode' => $zipcode

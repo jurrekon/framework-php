@@ -21,8 +21,8 @@ function create()
 function createSave()
 {
 	// if fields are filled, call function
-	if (isset($_POST['fullname']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['zipcode'])) {
-		createClient($_POST['fullname'], $_POST['street'], $_POST['city'], $_POST['zipcode']);
+	if (isset($_POST['fullname']) && isset($_POST['lastname']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['zipcode'])) {
+		createClient($_POST['fullname'], $_POST['lastname'], $_POST['street'], $_POST['city'], $_POST['zipcode']);
 	}
 
 	header("Location:" . URL . "client/index");
@@ -40,8 +40,8 @@ function edit($id)
 function editSave()
 {
 	// if fields are filled, call function
-	if (isset($_POST['fullname']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['zipcode'])) {
-		editClientSave($_POST['id'], $_POST['fullname'], $_POST['street'], $_POST['city'], $_POST['zipcode']);
+	if (isset($_POST['fullname']) && isset($_POST['lastname']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['zipcode'])) {
+		editClientSave($_POST['id'], $_POST['fullname'], $_POST['lastname'], $_POST['street'], $_POST['city'], $_POST['zipcode']);
 	}
 
 	header("Location:" . URL . "client/index");

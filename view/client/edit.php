@@ -6,6 +6,10 @@
 			<input type="text" id="fullname" name="fullname" value="<?=$clients[0]['fullname']?>">
 		</div>
 		<div>
+			<label for="lastname">Lastname:</label>
+			<input type="text" id="lastname" name="lastname" value="<?=$clients[0]['lastname']?>">
+		</div>
+		<div>
 			<label for="street">Street:</label>
 			<input type="text" id="street" name="street" value="<?=$clients[0]['street']?>">
 		</div>

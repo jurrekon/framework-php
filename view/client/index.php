@@ -4,6 +4,7 @@
 		<thead>
 			<tr>
 				<th>Full name</th>
+				<th>lastname</th>
 				<th>Street</th>
 				<th>City</th>
 				<th>Zipcode</th>
@@ -17,6 +18,7 @@
 ?>
 			<tr>
 				<td><?=$client['fullname']?></td>
+				<td><?=$client['lastname']?></td>
 				<td><?=$client['street']?></td>
 				<td><?=$client['city']?></td>
 				<td><?=$client['zipcode']?></td>
