@@ -13,7 +13,11 @@
 			<select name="species">
 				<?php
 					foreach ($species as $specie) {
-						echo "<option value=\"" . $specie['species'] . "\">" . $specie['species'] . "</option>";
+						if($specie['species'] == $patients[0]['species']){
+							echo "<option selected=\"selected\" value=\"" . $specie['species'] . "\">" . $specie['species'] . "</option>";
+						} else {
+							echo "<option value=\"" . $specie['species'] . "\">" . $specie['species'] . "</option>";
+						}
 					}
 				?>
 			</select>
@@ -39,7 +43,11 @@
 			<select name="client">
 				<?php
 					foreach ($clients as $client) {
-						echo "<option value=\"" . $client['id'] . "\">" . $client['fullname'] . "</option>";
+						if($client['id'] == $patients[0]['client_id']){
+							echo "<option selected=\"selected\" value=\"" . $client['id'] . "\">" . $client['fullname'] . "</option>";
+						} else {
+							echo "<option value=\"" . $client['id'] . "\">" . $client['fullname'] . "</option>";
+						}
 					}
 				?>
 			</select>
